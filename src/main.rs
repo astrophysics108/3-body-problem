@@ -10,7 +10,7 @@ type State = OVector<f32, Const<9>>;
 
 // window configuration substance
 fn conf() -> Conf {
-    Conf {
+    Conf {  
         window_title: "three-body-problem".to_owned(),
         window_width: (WIDTH * 2.0) as i32,
         window_height: (HEIGHT * 2.0) as i32,
