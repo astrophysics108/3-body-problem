@@ -106,19 +106,19 @@ impl System<f32, State> for ThreeBody {
 async fn main() {
 
     // state variables
-    let mut x1:f32 = 0.3;
+    let mut x1:f32 = 0.0;
     let mut x2:f32 = 0.5;
-    let mut x3:f32 = 0.8;
-    let mut y1:f32 = 0.3;
-    let mut y2:f32 = 0.5;
-    let mut y3:f32 = 0.7;
+    let mut x3:f32 = 1.0;
+    let mut y1:f32 = 0.0;
+    let mut y2:f32 = 1.0;
+    let mut y3:f32 = 0.0;
 
     let vx1:f32 = 0.0;
     let vx2:f32 = 0.0;
     let vx3:f32 = 0.0;
-    let vy1:f32 = 0.0;
+    let vy1:f32 = 0.2;
     let vy2:f32 = 0.0;
-    let vy3:f32 = 0.0;
+    let vy3:f32 = -1000.0;
 
     let mut state = State::from_vec(vec![
         x1, x2, x3, y1, y2, y3, vx1, vx2, vx3, vy1, vy2, vy3
@@ -131,7 +131,7 @@ async fn main() {
 
         clear_background(WHITE);
 
-        let the_whole_system = ThreeBody{m1:10.0, m2:10.0, m3:10.0, g:1.0, epsilon:0.001};
+        let the_whole_system = ThreeBody{m1:1000.0, m2:1.0, m3:1.0, g:1.0, epsilon:0.001};
         // initial y vector which we use the system to differentiate and update
 
         let mut delta = Rk4::new(the_whole_system, t, state.clone(), t + dt, dt);
